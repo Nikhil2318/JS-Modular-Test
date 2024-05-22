@@ -38,6 +38,16 @@ const winBtn = document.querySelector(".win")
 
 let uScore = parseInt(localStorage.getItem("userScore"));
 let cScore = parseInt(localStorage.getItem("computerScore"));
+if (isNaN(uScore)) {
+    uScore = 0;
+    localStorage.setItem("userScore", uScore);
+}
+
+if (isNaN(cScore)) {
+    cScore = 0;
+    localStorage.setItem("computerScore", cScore);
+}
+
 
 userScore.innerText = uScore;
 pcScore.innerText = cScore;
@@ -131,7 +141,6 @@ playAgianBtn.addEventListener("click", () =>{
 })
 
 winBtn.addEventListener("click", () => {
-    // game__Div.classList.remove("hidden-grid");
     results__Div.classList.add("hidden");
     game__Div.classList.remove("show-grid")
     game__Div.classList.toggle("hidden")
@@ -167,8 +176,7 @@ closeBtn.addEventListener("click", () => {
 
 nextBtn.addEventListener("click", () =>{
     mainContent.classList.toggle("hidden")
-    // game__Div.style.display = 'none';
-    // game__Div.classList.add("show-grid")
+  
     winnerPage.classList.toggle("hidden")
     results__Div.classList.toggle("hidden")
     nextBtn.style.display = 'none'
@@ -178,15 +186,9 @@ const winnerPlayAgainBtn = document.querySelector(".winner-page .play-again");
 winnerPlayAgainBtn.addEventListener("click", reset);
 
 function reset() {
-    // Ensure main and game divs are displayed
     mainContent.classList.remove("hidden");
     game__Div.classList.add("show-grid")
-
-    // Hide the winner-page
     winnerPage.classList.add("hidden");
-
-
-    // Reset results div
     mainResult__Div.forEach(resultDiv => {
         resultDiv.innerHTML = "";
         resultDiv.classList.remove("winner");
