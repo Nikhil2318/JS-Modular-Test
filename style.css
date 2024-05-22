@@ -150,17 +150,17 @@ body{
     border-radius: 50%;
     z-index: -2;
     box-shadow: 0 0 0 55px #35df2563, 0 0 0 80px #3e9e48c9, 0 0 5px 105px #2E9A2563;
-    /* box-shadow: 0px 1px 62px 0px #00000021; */
+    
 
 }
 .pick.paper::before{
-    background-color: #0074B6;
+    background-color: #FFA943;
 }
 .pick.scissors::before{
     background-color: #BD00FF;
 }
 .pick.rock::before{
-    background-color: #FFA943;
+    background-color: #0074B6;
 }
 .choice-btn[data-choice="rock"]{
     grid-area: rock;
